@@ -1,0 +1,9 @@
+# default
+node_modules/
+
+# db, logs
+*.sql
+*.log
+
+# dev
+*.conf
