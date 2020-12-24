@@ -2,6 +2,7 @@
 
 ## Version 1.0.0 under development
 
+- New: Added jQuery
 - New: Added Pug, SCSS, PostCSS
 - New: Added Webpack, Babel
 

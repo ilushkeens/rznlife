@@ -18,6 +18,9 @@
     ]
   },
   "author": "Ilya Korotkov <ilushkeens@gmail.com>",
+  "dependencies": {
+    "jquery": "^3.5.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",

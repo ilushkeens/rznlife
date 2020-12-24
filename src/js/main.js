@@ -1,3 +1,5 @@
-'use strict'
+(function ($) {
+  'use strict'
 
-console.log('Ok')
+  console.log('Ok')
+}(jQuery))

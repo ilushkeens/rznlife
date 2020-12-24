@@ -1,4 +1,6 @@
+const webpack = require('webpack')
 const path = require('path')
+const fs = require('fs')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -6,6 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const PATHS = {
   src: path.join(__dirname, '../src'),
   public: path.join(__dirname, '../public'),
+  view: path.join(__dirname, '../src/view'),
   assets: 'assets',
   image: 'image'
 }
@@ -78,12 +81,16 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
     new MiniCssExtractPlugin({
       filename: `${ PATHS.assets }/css/[name].css?v=[contenthash:7]`
     }),
-    new HtmlWebpackPlugin({
-      filename: './index.html', template: `${ PATHS.src }/view/index.pug`, chunks: ['vendors', 'main'], minify: false
-    }),
+    ...fs.readdirSync(PATHS.view).filter(fileName => fileName.endsWith('.pug')).map(page => new HtmlWebpackPlugin({
+      filename: `./${ page.replace(/\.pug/, '.html') }`, template: `${ PATHS.view }/${ page }`, chunks: ['vendors', 'main'], minify: false
+    })),
     new CopyWebpackPlugin({
       patterns: [
         // { from: `${ PATHS.src }/assets/image`, to: PATHS.image },
