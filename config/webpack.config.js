@@ -37,6 +37,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.pug$/i,
+        loader: 'pug-loader',
+        options: { pretty: true }
+      }, {
         test: /\.js$/i,
         loader: 'babel-loader',
         exclude: '/node_modules/'
@@ -44,12 +48,30 @@ module.exports = {
         test: /\.(jpe?g|png|svg|gif)$/i,
         type: 'asset/resource'
       }, {
+        test: /\.scss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: { sourceMap: true }
+          }, {
+            loader: 'postcss-loader',
+            options: { sourceMap: true, postcssOptions: { config: './config/postcss.config.js' } }
+          }, {
+            loader: 'sass-loader',
+            options: { sourceMap: true }
+          }
+        ]
+      }, {
         test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: { sourceMap: true }
+          }, {
+            loader: 'postcss-loader',
+            options: { sourceMap: true, postcssOptions: { config: './config/postcss.config.js' } }
           }
         ]
       }
@@ -60,7 +82,7 @@ module.exports = {
       filename: `${ PATHS.assets }/css/[name].css?v=[contenthash:7]`
     }),
     new HtmlWebpackPlugin({
-      filename: './index.html', template: `${ PATHS.src }/index.html`, chunks: ['vendors', 'main'], minify: false
+      filename: './index.html', template: `${ PATHS.src }/view/index.pug`, chunks: ['vendors', 'main'], minify: false
     }),
     new CopyWebpackPlugin({
       patterns: [

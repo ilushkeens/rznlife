@@ -1,0 +1,14 @@
+
+/* Index page */
+#index {
+  .container {
+    .index { grid-column: 1 / 7; }
+
+    @media screen and (min-width: $tabletWidth) {
+      .index { grid-column: 1 / 9; }
+    }
+    @media screen and (min-width: $desktopWidth) {
+      .index { grid-column: 1 / 13; }
+    }
+  }
+}

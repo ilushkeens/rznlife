@@ -1,0 +1,34 @@
+
+/* font options */
+$mainColor                 : #03131f;
+$mainShadow                : rgba(3, 19, 31, .75);
+$mainFontWeight            : normal;
+$mainFontSize              : 16px;
+$mainFont                  : Arial, sans-serif;
+$mainLineHeight            : 1.5;
+
+/* screen resolution */
+$mobileWidth               : 576px;
+$tabletWidth               : 768px;
+$laptopWidth               : 992px;
+$desktopWidth              : 1200px;
+$desktopWidth_md           : 1440px;
+$desktopWidth_lg           : 1920px;
+$desktopWidth_mac          : 2560px;
+
+/* primary colors */
+$backgroundColor           : #ffffff;
+$linkColor                 : #018abd;
+$linkColor_hover           : #f73149;
+$buttonLinkColor_hover     : rgba(1, 138, 189, .75);
+$accentColor               : #942ba1;
+$successColor              : #66b457;
+$dangerColor               : #fce728;
+$errorColor                : #fc4628;
+
+/* complementary colors */
+$darkGrey                  : #596a71;
+$mediumGrey                : #767676;
+$lightGrey                 : #b3bcc0;
+$grey                      : #f4f4f4;
+$white                     : #ffffff;

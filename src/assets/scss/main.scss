@@ -1,0 +1,87 @@
+
+@import 'utils/reset';
+@import 'utils/mixins';
+@import 'utils/vars';
+@import 'utils/fonts';
+
+
+/* base styles */
+::-webkit-selection { background: Highlight; color: $mainColor; }
+::-moz-selection { background: Highlight; color: $mainColor; }
+::selection { background: Highlight; color: $mainColor; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { box-shadow: inset 0 0 1px $mainShadow; }
+::-webkit-scrollbar-thumb { background: $mainColor; outline: 1px solid $darkGrey; }
+::-webkit-scrollbar-corner { background: $mainColor; }
+::-webkit-resizer { background: $darkGrey; }
+
+html { font-size: $mainFontSize; }
+body { background: $backgroundColor; color: $mainColor; font-weight: $mainFontWeight; font-size: 1rem; font-family: $mainFont; line-height: $mainLineHeight; }
+
+#app { position: relative; width: 100%; max-width: $desktopWidth_mac; margin: 0 auto; }
+
+h1 { font: normal 2.488rem/1.2 Arial; }
+h2 { font: normal 2.074rem/1.2 Arial; }
+h3 { font: bold 1.728rem/1.2 Arial; }
+h4 { font: normal 1.44rem/1.2 Arial; }
+h5 { font: bold 1.2rem/1.2 Arial; }
+h6 { font: normal 1rem/1.2 Arial; }
+
+p { font-size: 1rem;
+  &.red-string { text-indent: 2rem; }
+}
+b { font-weight: bold; }
+i { font-style: italic; }
+
+a { color: $linkColor; transition: all .3s ease-out;
+  &:active,
+  &:hover,
+  &:focus { color: $linkColor_hover; }
+
+  svg { transition: fill .3s ease-out; }
+}
+
+.container { position: relative; width: 100%; margin: 0 auto; padding: 2rem 1rem; background: transparent; display: grid; grid-gap: 2rem 1rem; grid-template-rows: auto; grid-template-columns: repeat(6, 1fr);
+
+  @media (min-width: $mobileWidth) and (max-width: calc($tabletWidth - 1px)) { width: $mobileWidth; grid-gap: 2rem; }
+  @media screen and (min-width: $tabletWidth) { width: $tabletWidth; padding: 2rem; grid-gap: 2rem; grid-template-columns: repeat(8, 1fr); }
+  @media screen and (min-width: $laptopWidth) { width: $laptopWidth; }
+  @media screen and (min-width: $desktopWidth) { width: $desktopWidth; grid-template-columns: repeat(12, 1fr); }
+  @media screen and (min-width: $desktopWidth_md) { width: $desktopWidth_md; }
+  @media screen and (min-width: $desktopWidth_lg) { width: $desktopWidth_lg; /* grid-template-columns: repeat(14, 1fr); */ }
+}
+
+
+/* form styles */
+.form { display: flex; flex-direction: column; }
+
+
+/* layout styles */
+header { @include z('header');
+  .container {
+
+    @media screen and (min-width: $tabletWidth) {}
+    @media screen and (min-width: $desktopWidth) {}
+  }
+}
+
+main { @include z('main');
+  .container {
+
+    @media screen and (min-width: $tabletWidth) {}
+    @media screen and (min-width: $desktopWidth) {}
+  }
+}
+
+footer { @include z('footer');
+  .container {
+
+    @media screen and (min-width: $tabletWidth) {}
+    @media screen and (min-width: $desktopWidth) {}
+  }
+}
+
+
+/* page styles */
+@import 'page/index';
