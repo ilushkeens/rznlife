@@ -21,12 +21,12 @@ body { background: $backgroundColor; color: $mainColor; font-weight: $mainFontWe
 
 #app { position: relative; width: 100%; max-width: $desktopWidth_mac; margin: 0 auto; }
 
-h1 { font: normal 2.488rem/1.2 Arial; }
-h2 { font: normal 2.074rem/1.2 Arial; }
-h3 { font: bold 1.728rem/1.2 Arial; }
-h4 { font: normal 1.44rem/1.2 Arial; }
-h5 { font: bold 1.2rem/1.2 Arial; }
-h6 { font: normal 1rem/1.2 Arial; }
+h1 { font: normal 2.488rem/1.2 'Roboto'; }
+h2 { font: normal 2.074rem/1.2 'Roboto'; }
+h3 { font: bold 1.728rem/1.2 'Roboto'; }
+h4 { font: normal 1.44rem/1.2 'Roboto'; }
+h5 { font: bold 1.2rem/1.2 'Roboto'; }
+h6 { font: normal 1rem/1.2 'Roboto'; }
 
 p { font-size: 1rem;
   &.red-string { text-indent: 2rem; }
